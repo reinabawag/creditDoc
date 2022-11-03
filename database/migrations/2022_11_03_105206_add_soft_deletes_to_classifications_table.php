@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClassificationsTable extends Migration
+class AddSoftDeletesToClassificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateClassificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('classifications', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('description');
-            $table->timestamps();
+        Schema::table('classifications', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +25,8 @@ class CreateClassificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classifications');
+        Schema::table('classifications', function (Blueprint $table) {
+            $table->dropColumn('deleted_at');
+        });
     }
 }

@@ -1,22 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+        <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
-            </div>
+            @endif
+
+            
+            <table id="table_id" class="display compact" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Customer</th>
+                        <th>Classification</th>
+                        <th>Uploaded by</th>
+                        <th>Upload date</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Customer</th>
+                        <th>Classification</th>
+                        <th>Uploaded by</th>
+                        <th>Upload date</th>
+                        <th>Options</th>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
     </div>
 </div>
